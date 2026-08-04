@@ -1,0 +1,28 @@
+name: Job Alert Bot
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run bot
+      run: npm start
+      env:
+        TURSO_URL: ${{ secrets.TURSO_URL }}
+        TURSO_TOKEN: ${{ secrets.TURSO_TOKEN }}
