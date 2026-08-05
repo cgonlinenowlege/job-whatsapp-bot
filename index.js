@@ -214,7 +214,7 @@ async function scrapeAndSend() {
 
     console.log('📌 [PRIORITY 2] Fetching Central Jobs...');
     const centralCount = await scrapeFreeJobAlert(
-      'https://www.freejobalert.com/central-government-jobs/',
+      'https://www.freejobalert.com/government-jobs/',
       'Central Govt'
     );
     totalNewJobs += centralCount;
